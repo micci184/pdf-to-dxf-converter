@@ -394,7 +394,11 @@ def convert_pdf_production_ready(input_path, output_path, scale=100, visualizati
             converter.create_production_visualization(elements, vis_path)
         
         # 4. DXF生成
-        print("📐 高精度DXF生成中...")
+        print("📐 安定版DXF生成中...")
+        dxf_writer = EnhancedDXFWriter()
+        
+        if scale != 1:
+            dxf_writer.set_scale(1.0 / scale)
         
         # 厳選された要素のみDXFに追加
         dxf_elements = {
@@ -404,8 +408,8 @@ def convert_pdf_production_ready(input_path, output_path, scale=100, visualizati
             'text_regions': elements['text_regions']
         }
         
-        # 高精度DXF作成
-        success = create_high_precision_dxf(dxf_elements, output_path, scale)
+        dxf_writer.add_elements(dxf_elements)
+        dxf_writer.save(output_path)
         
         # 5. 結果表示
         print("=" * 60)
