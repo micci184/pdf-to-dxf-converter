@@ -1,5 +1,5 @@
 # 機密情報ディレクトリ
-../shops/
+# shops/ディレクトリは追跡対象
 
 # Python関連
 __pycache__/
@@ -124,12 +124,13 @@ Thumbs.db
 temp/
 tmp/
 
-# 出力ファイル
-*.dxf
-*.png
-*.jpg
-*.jpeg
-*.pdf
+# 出力ファイル（必要なファイルは除外）
+# 必要なDXF、PNG、PDFファイルは個別に追加
+# *.dxf
+# *.png
+# *.jpg
+# *.jpeg
+# *.pdf
 
 # ログファイル
 *.log
